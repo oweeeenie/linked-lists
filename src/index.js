@@ -26,7 +26,7 @@ class LinkedLists {
       this.head = nodeStart;
       this.tail = nodeStart;
     } else {
-      this.head.next = nodeStart;
+      nodeStart.next = this.head;
       this.head = nodeStart;
     }
     this.size++;
@@ -42,6 +42,39 @@ class LinkedLists {
 
   getSize() {
     return this.size;
+  }
+
+  at(index) {
+    let currentNode = this.head;
+    let count = 0;
+
+    while (currentNode !== null && count < index) {
+      currentNode = currentNode.next;
+      count++;
+    }
+    return currentNode;
+  }
+
+  pop() {
+    let currentNode = this.head;
+    let previousNode = null;
+
+    if (this.head === null) {
+      return null;
+    }
+
+    if (this.head === this.tail) {
+      this.head = null;
+      this.tail = null;
+      return null;
+    }
+
+    while (currentNode.next !== null) {
+      previousNode = currentNode;
+      currentNode = currentNode.next;
+    }
+    this.tail = previousNode;
+    previousNode.next = null;
   }
 }
 
