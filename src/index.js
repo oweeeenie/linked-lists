@@ -1,6 +1,6 @@
 import './styles.css';
 
-class LinkedLists {
+class LinkedList {
   constructor() {
     this.head = null;
     this.tail = null;
@@ -75,6 +75,43 @@ class LinkedLists {
     }
     this.tail = previousNode;
     previousNode.next = null;
+  }
+
+  contains(value) {
+    let currentNode = this.head;
+
+    while (currentNode !== null) {
+      if (currentNode.value === value) {
+        return true;
+      } else {
+        currentNode = currentNode.next;
+      }
+    }
+    return false;
+  }
+
+  find(value) {
+    let currentNode = this.head;
+
+    while (currentNode !== null) {
+      if (currentNode.value === value) {
+        return currentNode;
+      } else {
+        currentNode = currentNode.next;
+      }
+    }
+    return null;
+  }
+
+  ToString() {
+    let currentNode = this.head;
+    const array = [];
+
+    while (currentNode !== null) {
+      array.push(currentNode.value);
+      currentNode = currentNode.next;
+    }
+    return array.join(' -> ');
   }
 }
 
