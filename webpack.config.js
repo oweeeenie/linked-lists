@@ -32,6 +32,6 @@ module.exports = {
   devServer: {
     static: './dist',
   },
-  mode: 'development',
+  mode: 'production',
   devtool: 'source-map',
 };
